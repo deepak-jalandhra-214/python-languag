@@ -1,4 +1,33 @@
+import csv
+
 expenses = []
+
+
+def load_expenses():
+    try:
+        with open("expenses.csv", "r") as file:
+            reader = csv.reader(file)
+
+            for row in reader:
+                expense = {
+                    "name": row[0],
+                    "amount": float(row[1])
+                }
+
+                expenses.append(expense)
+
+    except FileNotFoundError:
+        pass
+
+
+def save_expense(expense):
+    with open("expenses.csv", "a", newline="") as file:
+        writer = csv.writer(file)
+
+        writer.writerow([
+            expense["name"],
+            expense["amount"]
+        ])
 
 
 def add_expense():
@@ -11,6 +40,8 @@ def add_expense():
     }
 
     expenses.append(expense)
+    save_expense(expense)
+
     print("Expense added successfully!")
 
 
@@ -32,6 +63,10 @@ def total_expense():
         total += expense["amount"]
 
     print(f"\nTotal Expense = ₹{total}")
+
+
+# Program start
+load_expenses()
 
 
 while True:
