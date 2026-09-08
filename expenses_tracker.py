@@ -4,7 +4,7 @@ from datetime import datetime
 expenses = []
 
 
-# Load expenses from CSV
+
 def load_expenses():
     try:
         with open("expenses.csv", "r", newline="") as file:
