@@ -24,7 +24,7 @@ def load_expenses():
         pass
 
 
-# Save all expenses to CSV
+
 def save_all_expenses():
     with open("expenses.csv", "w", newline="") as file:
         writer = csv.writer(file)
@@ -38,7 +38,7 @@ def save_all_expenses():
             ])
 
 
-# Add expense
+
 def add_expense():
     name = input("Enter expense name: ")
     amount = float(input("Enter amount: "))
@@ -59,7 +59,7 @@ def add_expense():
     print("Expense added successfully!")
 
 
-# Show all expenses
+
 def show_expenses():
     if len(expenses) == 0:
         print("No expenses found.")
@@ -86,7 +86,6 @@ def total_expense():
     print(f"\nTotal Expense = ₹{total}")
 
 
-# Delete expense
 def delete_expense():
     show_expenses()
 
@@ -109,7 +108,6 @@ def delete_expense():
         print("Please enter a valid number.")
 
 
-# Edit expense
 def edit_expense():
     show_expenses()
 
@@ -151,7 +149,6 @@ def edit_expense():
         print("Please enter a valid value.")
 
 
-# Search expense
 def search_expense():
     keyword = input("Enter name or category to search: ").lower()
 
@@ -178,7 +175,6 @@ def search_expense():
         print("No matching expense found.")
 
 
-# Category-wise summary
 def category_summary():
     if len(expenses) == 0:
         print("No expenses found.")
@@ -202,11 +198,10 @@ def category_summary():
         print(f"{category}: ₹{amount}")
 
 
-# Load previous expenses
+
 load_expenses()
 
 
-# Main menu
 while True:
 
     print("\n===== EXPENSE TRACKER =====")
